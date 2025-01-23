@@ -8,7 +8,8 @@ output: github_document
 ## Load packages and data
 
 ```{r load-packages, message=FALSE}
-library(tidyverse) 
+library(tidyverse)
+library(datasauRus) 
 ```
 
 ```{r load-data, message=FALSE}
@@ -19,11 +20,29 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+```{r plastic-waste-continent}
+# the distribution of plastic waste per capita in 2010
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2)
+
+# identify the outlier country: 
+plastic_waste %>%
+  filter(plastic_waste_per_cap > 3.5)
+```
 
 ```{r plastic-waste-continent}
-# insert code here
+# density plot
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = plastic_waste_per_cap,
+    color = continent,
+    fill = continent
+  )
+) +
+  geom_density(alpha = 0.5)
 ```
+
 
 ### Exercise 2
 
