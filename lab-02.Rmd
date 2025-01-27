@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 - Plastic waste"
 author: "AllisonLi"
-date: "01222025"
+date: "01252025"
 output: github_document
 ---
 
@@ -22,13 +22,16 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ```{r plastic-waste-continent}
 # the distribution of plastic waste per capita in 2010
-ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
-  geom_histogram(binwidth = 0.2)
-
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap, color = continent, fill = continent)) +
+  geom_histogram(binwidth = 0.2)+
+  facet_wrap(~ continent)
+ 
 # identify the outlier country: 
 plastic_waste %>%
   filter(plastic_waste_per_cap > 3.5)
 ```
+
+In general, three out of the six continents show less than .5 plastic waste per capital. Asia and North America, as well as an outlier in South America show more relatively more plastic waste per capital. Additionally, there is an outlier in North American, indicating that Trinidad and Tobago has more than 3.5 pastic waste per capital. The internet suggests that is probably due to single-use plastic bottles and small population size. 
 
 ```{r plastic-waste-continent}
 # density plot
