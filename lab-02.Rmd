@@ -18,7 +18,7 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ## Exercises
 
-### Exercise 1
+### Exercise 1.1
 
 ```{r plastic-waste-continent}
 # the distribution of plastic waste per capita in 2010
@@ -33,6 +33,7 @@ plastic_waste %>%
 
 In general, three out of the six continents show less than .5 plastic waste per capital. Asia and North America, as well as an outlier in South America show more relatively more plastic waste per capital. Additionally, there is an outlier in North American, indicating that Trinidad and Tobago has more than 3.5 pastic waste per capital. The internet suggests that is probably due to single-use plastic bottles and small population size. 
 
+### Exercise 2.1
 ```{r plastic-waste-continent}
 # density plot
 ggplot(
@@ -46,8 +47,8 @@ ggplot(
   geom_density(alpha = 0.5)
 ```
 
-
-### Exercise 2
+### Exercise 2.2
+Alpha is known as transparency, it makes the variable either less or more transparable. Color and fill are usually a way to assign a color or a certain asthetic to a variable. For alpha, it is a setting characteristic that is assigned as a constant value for the whole layer. All the variables presented will be set to the same alpha value. In other words, Alpha does not present the differences in data. 
 
 ```{r plastic-waste-density}
 # insert code here
