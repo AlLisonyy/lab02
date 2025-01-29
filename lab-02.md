@@ -44,10 +44,10 @@ plastic_waste %>%
     ## 1   1341465
 
 In general, three out of the six continents show less than .5 plastic
-waste per capital. Asia and North America, as well as an outlier in
-South America show more relatively more plastic waste per capital.
+waste per capita. Asia and North America, as well as an outlier in South
+America show more relatively more plastic waste per capita.
 Additionally, there is an outlier in North American, indicating that
-Trinidad and Tobago has more than 3.5 pastic waste per capital. The
+Trinidad and Tobago has more than 3.5 plastic waste per capita. The
 internet suggests that is probably due to single-use plastic bottles and
 small population size.
 
@@ -120,9 +120,9 @@ ggplot(
 
 Box plot clearly shows the median value for each continent and each
 outlier, while the violin plot shows the density, indicating how many
-countries there are for each level of plastic waste per capital in each
+countries there are for each level of plastic waste per capita in each
 continent. For example, the violin plot allows us to see most countries
-in Africa has close to 0 plastic waste per capital. The median value and
+in Africa has close to 0 plastic waste per capita. The median value and
 outlier are apparent in the box plot.
 
 ### Exercise 4.1
@@ -148,8 +148,7 @@ It seems to be that most dots (countries) appeared to be around the low
 value. Although the relationship does not look like a linear
 relationship, it could be considered as a slightly positive linear
 relationship. This suggested that as the amount of mismanaged plastic
-waste per capital increases, the plastic waste per capital also
-increases.
+waste per capita increases, the plastic waste per capita also increases.
 
 ### Exercise 4.2
 
@@ -174,12 +173,12 @@ ggplot(
 
 Based on the graph, it seems like there isn’t a clear distinction for
 each continente in terms of the relationship between the plastic waste
-per capital and mismanaged plastic waste per capital.
+per capita and mismanaged plastic waste per capita.
 
 ### Exercise 4.2
 
 ``` r
-# plastic waste per capital and total population
+# plastic waste per capita and total population
 ggplot(
   data = plastic_waste,
   mapping = aes(
@@ -198,7 +197,7 @@ ggplot(
 ![](lab-02_files/figure-gfm/plastic-waste-population-total-1.png)<!-- -->
 
 ``` r
-# plastic waste per capital and coastal population
+# plastic waste per capita and coastal population
 ggplot(
   data = plastic_waste,
   mapping = aes(
@@ -217,7 +216,7 @@ ggplot(
 ![](lab-02_files/figure-gfm/plastic-waste-population-total-2.png)<!-- -->
 
 None of both seems to have a strong linear relationship. However, the
-relationship between plastic waste per capital and coastal population
+relationship between plastic waste per capita and coastal population
 seems to be more strongly linearly associated.
 
 ### Exercise 5
@@ -235,10 +234,10 @@ plastic_waste %>%
     )
   ) +
     geom_point() +
-    geom_smooth(color = "black", method = NULL, se = TRUE)
+    geom_smooth(color = "black", method = loess, se = TRUE)
 ```
 
-    ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+    ## `geom_smooth()` using formula = 'y ~ x'
 
     ## Warning: Removed 10 rows containing non-finite outside the scale range
     ## (`stat_smooth()`).
@@ -248,12 +247,11 @@ plastic_waste %>%
 
 ![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
 
-``` r
-    labs(caption = "Coastal population proportion")
-```
+5.1. Recreate the following plot, and interpret what you see in context
+of the data.
 
-    ## $caption
-    ## [1] "Coastal population proportion"
-    ## 
-    ## attr(,"class")
-    ## [1] "labels"
+This graph shows a general trend of the data that indicates there is no
+linear relationship between the two variables and there confidence
+interval is large. In general, it seems that countries with higher
+coastal population proportion have higher plastic waste production per
+capita.

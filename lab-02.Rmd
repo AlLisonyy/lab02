@@ -160,7 +160,6 @@ plastic_waste %>%
   ) +
     geom_point() +
     geom_smooth(color = "black", method = loess, se = TRUE)
-    labs(caption = "Coastal population proportion")
 
 ```
 
