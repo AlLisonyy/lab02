@@ -51,15 +51,53 @@ ggplot(
 Alpha is known as transparency, it makes the variable either less or more transparable. Color and fill are usually a way to assign a color or a certain asthetic to a variable. For alpha, it is a setting characteristic that is assigned as a constant value for the whole layer. All the variables presented will be set to the same alpha value. In other words, Alpha does not present the differences in data. 
 
 ```{r plastic-waste-density}
-# insert code here
+# side-by-side box plots
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = continent,
+    y = plastic_waste_per_cap
+  )
+) +
+  geom_boxplot()
 ```
 
-### Exercise 3
-
-Remove this text, and add your answer for Exercise 3 here.
+### Exercise 3.1
 
 ```{r plastic-waste-violin}
-# insert code here
+# Violin plots
+geom_violin(
+  mapping = NULL,
+  data = NULL,
+  stat = "ydensity",
+  position = "dodge",
+  draw_quantiles = NULL,
+  trim = TRUE,
+  bounds = c(-Inf, Inf),
+  scale = "area",
+  na.rm = FALSE,
+  orientation = NA,
+  show.legend = NA,
+  inherit.aes = TRUE
+)
+
+stat_ydensity(
+  mapping = NULL,
+  data = NULL,
+  geom = "violin",
+  position = "dodge",
+  bw = "nrd0",
+  adjust = 1,
+  kernel = "gaussian",
+  trim = TRUE,
+  scale = "area",
+  drop = TRUE,
+  na.rm = FALSE,
+  orientation = NA,
+  show.legend = NA,
+  inherit.aes = TRUE,
+  bounds = c(-Inf, Inf)
+)
 ```
 
 ### Exercise 4
