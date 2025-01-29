@@ -34,7 +34,7 @@ plastic_waste %>%
 In general, three out of the six continents show less than .5 plastic waste per capital. Asia and North America, as well as an outlier in South America show more relatively more plastic waste per capital. Additionally, there is an outlier in North American, indicating that Trinidad and Tobago has more than 3.5 pastic waste per capital. The internet suggests that is probably due to single-use plastic bottles and small population size. 
 
 ### Exercise 2.1
-```{r plastic-waste-continent}
+```{r plastic-waste-density}
 # density plot
 ggplot(
   data = plastic_waste,
@@ -48,9 +48,9 @@ ggplot(
 ```
 
 ### Exercise 2.2
-Alpha is known as transparency, it makes the variable either less or more transparable. Color and fill are usually a way to assign a color or a certain asthetic to a variable. For alpha, it is a setting characteristic that is assigned as a constant value for the whole layer. All the variables presented will be set to the same alpha value. In other words, Alpha does not present the differences in data. 
+Alpha is known as transparency, it makes the variable either less or more transparable. Color and fill are usually a way to assign a color or a certain aesthetic to a variable. For alpha, it is a setting characteristic that is assigned as a constant value for the whole layer. All the variables presented will be set to the same alpha value. In other words, Alpha does not present the differences in data. 
 
-```{r plastic-waste-density}
+```{r plastic-waste-boxplot}
 # side-by-side box plots
 ggplot(
   data = plastic_waste,
@@ -66,55 +66,83 @@ ggplot(
 
 ```{r plastic-waste-violin}
 # Violin plots
-geom_violin(
-  mapping = NULL,
-  data = NULL,
-  stat = "ydensity",
-  position = "dodge",
-  draw_quantiles = NULL,
-  trim = TRUE,
-  bounds = c(-Inf, Inf),
-  scale = "area",
-  na.rm = FALSE,
-  orientation = NA,
-  show.legend = NA,
-  inherit.aes = TRUE
-)
-
-stat_ydensity(
-  mapping = NULL,
-  data = NULL,
-  geom = "violin",
-  position = "dodge",
-  bw = "nrd0",
-  adjust = 1,
-  kernel = "gaussian",
-  trim = TRUE,
-  scale = "area",
-  drop = TRUE,
-  na.rm = FALSE,
-  orientation = NA,
-  show.legend = NA,
-  inherit.aes = TRUE,
-  bounds = c(-Inf, Inf)
-)
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = continent,
+    y = plastic_waste_per_cap,
+    color = continent,
+    fill = continent
+  )
+) +
+  geom_violin()
 ```
 
-### Exercise 4
+Box plot clearly shows the median value for each continent and each outlier, while the violin plot shows the density, indicating how many countries there are for each level of plastic waste per capital in each continent. For example, the violin plot allows us to see most countries in Africa has close to 0 plastic waste per capital. The median value and outlier are apparent in the box plot. 
 
-Remove this text, and add your answer for Exercise 4 here.
+### Exercise 4.1
 
-```{r plastic-waste-mismanaged}
-# insert code here
+```{r plastic-waste-scatterplots}
+# scatter plots
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = mismanaged_plastic_waste_per_cap,
+    y = plastic_waste_per_cap
+  )
+) +
+  geom_point()
 ```
+
+It seems to be that most dots (countries) appeared to be around the low value. Although the relationship does not look like a linear relationship, it could be considered as a slightly positive linear relationship. This suggested that as the amount of mismanaged plastic waste per capital increases, the plastic waste per capital also increases. 
+
+### Exercise 4.2
 
 ```{r plastic-waste-mismanaged-continent}
-# insert code here
+# colored scatter plots
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = mismanaged_plastic_waste_per_cap,
+    y = plastic_waste_per_cap,
+    color = continent,
+    fill = continent
+  )
+) +
+  geom_point()
 ```
 
+Based on the graph, it seems like there isn't a clear distinction for each continente in terms of the relationship between the plastic waste per capital and mismanaged plastic waste per capital. 
+
+### Exercise 4.2
+
 ```{r plastic-waste-population-total}
-# insert code here
+# plastic waste per capital and total population
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = plastic_waste_per_cap,
+    y = total_pop,
+    color = continent,
+    fill = continent
+  )
+) +
+  geom_point()
+
+# plastic waste per capital and coastal population
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = plastic_waste_per_cap,
+    y = coastal_pop,
+    color = continent,
+    fill = continent
+  )
+) +
+  geom_point()
 ```
+
+None of both seems to have a strong linear relationship. However, the relationship between plastic waste per capital and coastal population seems to be more strongly linearly associated. 
 
 ```{r plastic-waste-population-coastal}
 # insert code here
