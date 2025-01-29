@@ -220,14 +220,40 @@ None of both seems to have a strong linear relationship. However, the
 relationship between plastic waste per capital and coastal population
 seems to be more strongly linearly associated.
 
-``` r
-# insert code here
-```
-
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
+``` r
+# graph
+plastic_waste %>%
+  filter(plastic_waste_per_cap <= 3.5) %>%
+  mutate(costal_pop_pro = coastal_pop / total_pop) %>%
+    ggplot(
+    mapping = aes(
+      x = costal_pop_pro,
+      y = plastic_waste_per_cap,
+      color = continent,
+    )
+  ) +
+    geom_point() +
+    geom_smooth(color = "black", method = NULL, se = TRUE)
+```
+
+    ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
+    ## Warning: Removed 10 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
+
+    ## Warning: Removed 10 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
 
 ``` r
-# insert code here
+    labs(caption = "Coastal population proportion")
 ```
+
+    ## $caption
+    ## [1] "Coastal population proportion"
+    ## 
+    ## attr(,"class")
+    ## [1] "labels"
